@@ -1,12 +1,10 @@
 package pl.program4.biniek;
 
-import java.io.*;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class WyborMetodyZapisu {
 	String odczyt = "";
+	ZapisywaczStanu zs = new ZapisywaczStanu();
 
 	// @Override
 	public void readInTekst(Osoba[] osob) {
@@ -15,21 +13,17 @@ public class WyborMetodyZapisu {
 
 		System.out
 				.println("Wybierz metode zapisu 1 to XML, ka¿da inna to TXT ");
-		
+
 		odczyt = in.nextLine();
-		
+
 		in.close();
 
-	if (odczyt.equals("1")) {
-		System.out.println("t0");
-			XmlWritter zap = new XmlWritter();
-			System.out.println("t1");
-			zap.zapis(osob);
+		if (odczyt.equals("1")) {
+			zs.setZapisywacz(new XmlWritter());
 		} else {
-			TxtWritter zap = new TxtWritter();
-			zap.zapis(osob);
+			zs.setZapisywacz(new TxtWritter());
 		}
-		System.out.println("t2");
+		zs.zapisz(osob);
 	}
 
 }

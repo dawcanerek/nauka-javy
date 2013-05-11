@@ -5,10 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
-public class XmlWritter implements Zapisywacz {
+public class XmlWritter implements ZapisywalnyStrategia {
 
 	String nazwaPliku = "";
 
